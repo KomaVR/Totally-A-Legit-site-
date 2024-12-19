@@ -57,35 +57,27 @@
       background: linear-gradient(to bottom, #007b00, #00c853);
     }
 
-    .fake-ad .small-print {
-      font-size: 0.8em;
-      color: #999;
-    }
-
     .popup {
       position: fixed;
-      bottom: 10px;
-      left: 10px;
-      width: 200px;
       background: #ffeb3b;
       border: 2px solid #ff0000;
-      padding: 10px;
+      padding: 20px;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-      animation: shake 1.5s infinite;
+      font-size: 1.2em;
+      z-index: 1000;
+      display: none;
     }
 
-    @keyframes shake {
-      0% { transform: translate(1px, 1px) rotate(0deg); }
-      10% { transform: translate(-1px, -2px) rotate(-1deg); }
-      20% { transform: translate(-3px, 0px) rotate(1deg); }
-      30% { transform: translate(3px, 2px) rotate(0deg); }
-      40% { transform: translate(1px, -1px) rotate(1deg); }
-      50% { transform: translate(-1px, 2px) rotate(-1deg); }
-      60% { transform: translate(-3px, 1px) rotate(0deg); }
-      70% { transform: translate(3px, 1px) rotate(-1deg); }
-      80% { transform: translate(-1px, -1px) rotate(1deg); }
-      90% { transform: translate(1px, 2px) rotate(0deg); }
-      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    .popup .close-btn {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      background: #ff0000;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      font-weight: bold;
     }
 
     .footer {
@@ -96,26 +88,6 @@
       bottom: 0;
       width: 100%;
       font-size: 0.9em;
-    }
-
-    .ad-banner {
-      display: block;
-      width: 728px;
-      height: 90px;
-      margin: 20px auto;
-      background: #000;
-      color: #fff;
-      line-height: 90px;
-      text-align: center;
-      font-size: 1.2em;
-    }
-
-    @media (max-width: 768px) {
-      .ad-banner {
-        width: 100%;
-        height: 60px;
-        line-height: 60px;
-      }
     }
   </style>
 </head>
@@ -134,10 +106,57 @@
     <p class="small-print">By clicking download, you agree to our Terms & Conditions and Privacy Policy.</p>
   </div>
 
-  <div class="ad-banner">Advertise Here - Click Me!</div>
-
-  <div class="popup">Congratulations! You've won a free iPhone! Click here!</div>
-
   <div class="footer">© 2024 Totally Legit Company. All rights reserved. Terms of Service | Privacy Policy</div>
+
+  <!-- Popups -->
+  <div id="popup1" class="popup">
+    <button class="close-btn" onclick="closePopup('popup1')">X</button>
+    Congratulations! You've won a free iPhone!
+  </div>
+
+  <div id="popup2" class="popup">
+    <button class="close-btn" onclick="closePopup('popup2')">X</button>
+    Warning: Your computer might be infected!
+  </div>
+
+  <div id="popup3" class="popup">
+    <button class="close-btn" onclick="closePopup('popup3')">X</button>
+    Your system is out of date. Update now!
+  </div>
+
+  <script>
+    const popups = ["popup1", "popup2", "popup3"];
+
+    function getRandomPosition() {
+      const x = Math.random() * (window.innerWidth - 200);
+      const y = Math.random() * (window.innerHeight - 100);
+      return { x, y };
+    }
+
+    function showRandomPopup() {
+      const randomPopup = popups[Math.floor(Math.random() * popups.length)];
+      const popupElement = document.getElementById(randomPopup);
+
+      const position = getRandomPosition();
+      popupElement.style.left = `${position.x}px`;
+      popupElement.style.top = `${position.y}px`;
+      popupElement.style.display = "block";
+
+      // Show the popup after a random delay
+      setTimeout(() => {
+        popupElement.style.display = "none";
+      }, 5000);
+    }
+
+    function closePopup(id) {
+      const popup = document.getElementById(id);
+      popup.style.display = "none";
+    }
+
+    // Randomly display popups every 3-8 seconds
+    setInterval(() => {
+      showRandomPopup();
+    }, Math.random() * (8000 - 3000) + 3000);
+  </script>
 </body>
 </html>
