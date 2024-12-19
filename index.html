@@ -122,9 +122,8 @@
     <p class="small-print">By clicking download, you agree to our Terms & Conditions and Privacy Policy.</p>
   </div>
 
-  <div class="footer">© 2024 Totally Legit Company. All rights reserved. Terms of Service | Privacy Policy</div>
+  <div class="footer">© 2024 Legit Company. All rights reserved. Terms of Service | Privacy Policy</div>
 
-  <!-- Popups -->
   <div id="popup1" class="popup">
     <button class="close-btn" onclick="closePopup('popup1')">X</button>
     Congratulations! You've won a free iPhone!
@@ -161,7 +160,7 @@
       popupElement.style.top = `${position.y}px`;
       popupElement.style.display = "block";
 
-      // Show the popup after a random delay
+      
       setTimeout(() => {
         popupElement.style.display = "none";
       }, 5000);
@@ -172,7 +171,7 @@
       popup.style.display = "none";
     }
 
-    // Randomly display popups every 3-8 seconds
+    
     setInterval(() => {
       showRandomPopup();
     }, Math.random() * (8000 - 3000) + 3000);
