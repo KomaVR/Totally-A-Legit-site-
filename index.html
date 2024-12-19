@@ -80,6 +80,22 @@
       font-weight: bold;
     }
 
+    .popup .action-btn {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 20px;
+      font-size: 1em;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .popup .action-btn:hover {
+      background: #0056b3;
+    }
+
     .footer {
       background: #333;
       color: #fff;
@@ -112,16 +128,19 @@
   <div id="popup1" class="popup">
     <button class="close-btn" onclick="closePopup('popup1')">X</button>
     Congratulations! You've won a free iPhone!
+    <a class="action-btn" href="#">Claim Now</a>
   </div>
 
   <div id="popup2" class="popup">
     <button class="close-btn" onclick="closePopup('popup2')">X</button>
     Warning: Your computer might be infected!
+    <a class="action-btn" href="#">Scan Now</a>
   </div>
 
   <div id="popup3" class="popup">
     <button class="close-btn" onclick="closePopup('popup3')">X</button>
     Your system is out of date. Update now!
+    <a class="action-btn" href="#">Update</a>
   </div>
 
   <script>
