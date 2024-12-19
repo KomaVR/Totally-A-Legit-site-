@@ -105,6 +105,39 @@
       width: 100%;
       font-size: 0.9em;
     }
+
+    .social-preview {
+      background-color: #e0e0e0;
+      padding: 10px;
+      margin-top: 10px;
+      text-align: left;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-preview img {
+      max-width: 50px;
+      margin-right: 10px;
+    }
+
+    .social-preview .title {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .social-preview .description {
+      font-size: 0.9em;
+    }
+
+    .social-preview .url {
+      font-size: 0.9em;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .social-preview .url:hover {
+      text-decoration: underline;
+    }
+
   </style>
 </head>
 <body>
@@ -114,12 +147,32 @@
     <img src="https://raw.githubusercontent.com/KomaVR/Totally-A-Legit-site-/refs/heads/main/sketch%20(512%20x%20288%20px)_20241219_091651_0000.png" alt="Ad">
     <a class="download-button" href="#">Download Now</a>
     <p class="small-print">Your file will start downloading automatically. No viruses, we promise!</p>
+    <div class="social-preview">
+      <div class="title">Twitter</div>
+      <div class="description">Check out this free game! 🚀 Download now! 🔥</div>
+      <a href="#" class="url">twitter.com/secure_download</a>
+    </div>
+    <div class="social-preview">
+      <div class="title">Discord</div>
+      <div class="description">This link leads to a free software download. Beware of viruses!</div>
+      <a href="#" class="url">discord.gg/securedownload</a>
+    </div>
   </div>
 
   <div class="fake-ad">
     <img src="https://help.soundful.com/hs-fs/hubfs/Imported%20images/download_01.png?width=544&height=456&name=download_01.png" alt="Ad">
     <a class="download-button" href="#">Install for Free</a>
     <p class="small-print">By clicking download, you agree to our Terms & Conditions and Privacy Policy.</p>
+    <div class="social-preview">
+      <div class="title">SMS</div>
+      <div class="description">Free game download! Click here to start your download!</div>
+      <a href="#" class="url">sms:DownloadFree</a>
+    </div>
+    <div class="social-preview">
+      <div class="title">Facebook</div>
+      <div class="description">Get your free download now! Limited time offer!</div>
+      <a href="#" class="url">facebook.com/secure.download</a>
+    </div>
   </div>
 
   <div class="footer">© 2024 Legit Company. All rights reserved. Terms of Service | Privacy Policy</div>
@@ -160,7 +213,6 @@
       popupElement.style.top = `${position.y}px`;
       popupElement.style.display = "block";
 
-      
       setTimeout(() => {
         popupElement.style.display = "none";
       }, 5000);
@@ -171,7 +223,6 @@
       popup.style.display = "none";
     }
 
-    
     setInterval(() => {
       showRandomPopup();
     }, Math.random() * (8000 - 3000) + 3000);
